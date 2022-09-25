@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Fade from "react-reveal/Fade";
 
 function Section({
   title,
@@ -10,18 +11,22 @@ function Section({
 }) {
   return (
     <Wrap bgImage={backgroundImg}>
-      <ItemText>
-        {/* getting the properties from props which was passed in the 
+      <Fade bottom>
+        <ItemText>
+          {/* getting the properties from props which was passed in the 
         home component */}
-        <h1>{title}</h1>
-        <p>{description}</p>
-      </ItemText>
+          <h1>{title}</h1>
+          <p>{description}</p>
+        </ItemText>
+      </Fade>
       <Buttons>
-        <ButtonGroup>
-          <LeftButton>{leftBtnText}</LeftButton>
-          {/* this syntax means if rightBtnText is true(exits), only then(&&) will the rightBtnText show */}
-          {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
-        </ButtonGroup>
+        <Fade bottom>
+          <ButtonGroup>
+            <LeftButton>{leftBtnText}</LeftButton>
+            {/* this syntax means if rightBtnText is true(exits), only then(&&) will the rightBtnText show */}
+            {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
+          </ButtonGroup>
+        </Fade>
         <DownArrow src="/images/down-arrow.svg" />
       </Buttons>
     </Wrap>
